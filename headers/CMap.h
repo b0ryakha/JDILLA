@@ -14,5 +14,5 @@ private:
 public:
 	CMap(const std::vector<CTile>& field);
 
-	void draw(sf::RenderWindow* m_pWindow);
+	void draw(sf::RenderWindow* m_pWindow) const;
 };
