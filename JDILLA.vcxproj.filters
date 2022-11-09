@@ -21,9 +21,15 @@
     <ClCompile Include="sources\CEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CTile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\CEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CTile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

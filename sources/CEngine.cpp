@@ -1,20 +1,3 @@
-#include <SFML/Graphics/CircleShape.hpp>
-#include <SFML/Graphics/RectangleShape.hpp>
-#include <SFML/Graphics/RenderWindow.hpp>
-#include <SFML/Graphics/Sprite.hpp>
-#include <SFML/Graphics/Texture.hpp>
-#include <SFML/System/Clock.hpp>
-#include <SFML/System/Vector2.hpp>
-#include <SFML/Window/Event.hpp>
-
-#include <chrono>
-#include <cstddef>
-#include <cstdlib>
-#include <random>
-#include <ctime>
-#include <thread>
-#include <memory>
-
 #include "CEngine.h"
 
 void CEngine::Input()
@@ -28,7 +11,6 @@ void CEngine::Input()
     });
 
     m_tInput->detach();
-
 }
 
 void CEngine::Update()
@@ -62,6 +44,14 @@ void CEngine::Render()
     m_tRender->detach();
 }
 
+size_t CEngine::screenWidth() const {
+    return m_iWidth;
+}
+
+size_t CEngine::screenHeight() const {
+    return m_iHeight;
+}
+
 CEngine::CEngine()
 {
     m_pWindow = new sf::RenderWindow(sf::VideoMode(m_iWidth, m_iHeight), "JDILLA");
@@ -85,10 +75,10 @@ CEngine::~CEngine()
     delete m_tRender;
     delete m_tUpdate;
     delete m_tInput;
-
     delete m_pWindow;
 
     m_tInput = nullptr;
     m_tRender = nullptr;
     m_tUpdate = nullptr;
+    m_pWindow = nullptr;
 }

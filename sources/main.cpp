@@ -1,5 +1,4 @@
 #include "CEngine.h"
-#include <iostream>
 
 int main() 
 {

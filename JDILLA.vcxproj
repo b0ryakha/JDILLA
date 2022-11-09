@@ -142,10 +142,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CTile.cpp" />
     <ClCompile Include="sources\CEngine.cpp" />
     <ClCompile Include="sources\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CTile.h" />
     <ClInclude Include="headers\CEngine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
