@@ -21,7 +21,9 @@ void CEngine::Input()
 {
     m_tInput = new std::thread([&]()
     {
-        while(m_pWindow->isOpen()) {
+        while(m_pWindow->isOpen())
+        {
+
         }
     });
 
@@ -40,7 +42,6 @@ void CEngine::Update()
                 if (m_event.type == sf::Event::Closed)
                     m_pWindow->close();
             }
-
         }
     });
 
@@ -54,11 +55,7 @@ void CEngine::Render()
         while(m_pWindow->isOpen())
         {
             m_pWindow->clear(sf::Color(44, 53, 59));
-
-
             m_pWindow->display();
-
-
         }
     });
 
@@ -77,12 +74,10 @@ CEngine::CEngine()
 
     m_pWindow->setFramerateLimit(60);
 
-
     while(m_pWindow->isOpen())
     {
 
     }
-
 }
 
 CEngine::~CEngine()
