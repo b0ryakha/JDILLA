@@ -8,10 +8,11 @@ CEntity::CEntity()
 
 CEntity::~CEntity()
 {
-
+    delete m_sprite;
+    m_sprite = nullptr;
 }
 
-void CEntity::setName(std::string m_sName)
+void CEntity::setName(const std::string& m_sName)
 {
     this->m_sName = m_sName;
 }
@@ -31,32 +32,32 @@ void CEntity::setSpeed(float m_fSpeed)
     this->m_fSpeed = m_fSpeed;
 }
 
-void CEntity::setSprite(sf::Sprite *m_sprite)
+void CEntity::setSprite(sf::Sprite* m_sprite)
 {
     this->m_sprite = m_sprite;
 }
 
-std::string CEntity::getName()
+std::string CEntity::getName() const
 {
     return this->m_sName;
 }
 
-float CEntity::getHealth()
+float CEntity::getHealth() const
 {
     return this->m_fHealth;
 }
 
-float CEntity::getArmor()
+float CEntity::getArmor() const
 {
     return this->m_fArmor;
 }
 
-float CEntity::getSpeed()
+float CEntity::getSpeed() const
 {
     return this->m_fSpeed;
 }
 
-sf::Sprite CEntity::getSprite()
+sf::Sprite CEntity::getSprite() const
 {
     return *this->m_sprite;
 }
@@ -66,11 +67,13 @@ void CEntity::updateState()
     m_sprite->setPosition(m_position.x, m_position.y);
 }
 
-void CEntity::drawEntity(sf::RenderWindow *m_pWindow)
+void CEntity::loadTexture(const std::string& m_sTexturePath) {
+    // TODO
+}
+
+void CEntity::draw(sf::RenderWindow* m_pWindow) const
 {
-
     m_pWindow->draw(*m_sprite);
-
 }
 
 void CEntity::setPosition(float fX, float fY)

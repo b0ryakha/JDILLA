@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="sources\CMap.cpp" />
     <ClCompile Include="sources\CTile.cpp" />
     <ClCompile Include="sources\CEngine.cpp" />
     <ClCompile Include="sources\CEntity.cpp" />
@@ -149,6 +150,7 @@
     <ClCompile Include="sources\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\CMap.h" />
     <ClInclude Include="headers\CTile.h" />
     <ClInclude Include="headers\CEngine.h" />
     <ClInclude Include="headers\CEntity.h" />
