@@ -1,5 +1,8 @@
 #include "CMap.h"
 
+CMap::CMap()
+{}
+
 CMap::CMap(const std::vector<CTile>& field)
 	: m_field(field)
 {}

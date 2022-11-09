@@ -12,6 +12,7 @@ private:
 	std::vector<CEntity*> m_entities;
 
 public:
+	CMap();
 	CMap(const std::vector<CTile>& field);
 
 	void draw(sf::RenderWindow* m_pWindow) const;
