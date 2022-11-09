@@ -4,6 +4,8 @@ project(JDILLA)
 
 set(CMAKE_CXX_STANDARD 20)
 
+find_package(SFML 2.5.1 COMPONENTS system graphics audio network REQUIRED)
+
 set(HEADERS_DIR "${CMAKE_SOURCE_DIR}/headers")
 set(SOURCE_DIR "${CMAKE_SOURCE_DIR}/sources")
 
@@ -21,3 +23,5 @@ add_executable(${PROJECT_NAME} ${CPPS} ${HEADERS} ${CPPHEADERS})
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${HEADERS_DIR})
 target_include_directories(${PROJECT_NAME} PRIVATE ${SOURCE_DIR})
+
+target_link_libraries(${PROJECT_NAME} PRIVATE sfml-audio sfml-graphics sfml-network sfml-system)
