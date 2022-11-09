@@ -38,17 +38,18 @@ void CEngine::Render()
         {
             m_pWindow->clear(sf::Color(44, 53, 59));
             m_pWindow->display();
+            m_map.draw(m_pWindow);
         }
     });
 
     m_tRender->detach();
 }
 
-size_t CEngine::screenWidth() const {
+size_t CEngine::getScreenWidth() const {
     return m_iWidth;
 }
 
-size_t CEngine::screenHeight() const {
+size_t CEngine::getScreenHeight() const {
     return m_iHeight;
 }
 
