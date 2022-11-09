@@ -10,5 +10,5 @@ private:
 public:
 	CTile(const sf::Vector2f& position, const sf::Texture& texture);
 
-	void set_pos(const sf::Vector2f& position);
+	void setPosition(const sf::Vector2f& position);
 };
