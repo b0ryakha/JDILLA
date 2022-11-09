@@ -6,7 +6,6 @@
 #include <cstddef>
 #include <thread>
 
-
 class CEngine
 {
 private:
@@ -21,7 +20,6 @@ private:
     std::thread *m_tInput = nullptr;
 
 public:
-
     void Input();
     void Update();
     void Render();
