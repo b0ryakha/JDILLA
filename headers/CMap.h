@@ -8,10 +8,11 @@
 class CMap
 {
 private:
-	std::vector<std::vector<CTile>> m_field;
+	std::vector<CTile> m_field;
 	std::vector<CEntity*> m_entities;
 
 public:
-	CMap(const std::vector<std::vector<CTile>>& field);
+	CMap(const std::vector<CTile>& field);
 
+	void draw(sf::RenderWindow* m_pWindow);
 };
