@@ -21,7 +21,13 @@
     <ClCompile Include="sources\CEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CTile.cpp">
+    <ClCompile Include="sources\CEntity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\CPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\CTile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,7 +35,13 @@
     <ClInclude Include="headers\CEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CTile.h">
+    <ClInclude Include="headers\CEntity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\CPlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\CTile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

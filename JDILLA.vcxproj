@@ -142,13 +142,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CTile.cpp" />
+    <ClCompile Include="sources\CTile.cpp" />
     <ClCompile Include="sources\CEngine.cpp" />
+    <ClCompile Include="sources\CEntity.cpp" />
+    <ClCompile Include="sources\CPlayer.cpp" />
     <ClCompile Include="sources\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CTile.h" />
+    <ClInclude Include="headers\CTile.h" />
     <ClInclude Include="headers\CEngine.h" />
+    <ClInclude Include="headers\CEntity.h" />
+    <ClInclude Include="headers\CPlayer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
