@@ -1,4 +1,5 @@
 #pragma once
+
 #include <SFML/Graphics.hpp>
 
 class CTile
@@ -11,4 +12,5 @@ public:
 	CTile(const sf::Vector2f& position, const sf::Texture& texture);
 
 	void setPosition(const sf::Vector2f& position);
+	void draw(sf::RenderWindow* m_pWindow) const;
 };
