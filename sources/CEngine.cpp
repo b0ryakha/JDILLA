@@ -21,7 +21,9 @@ void CEngine::Input()
 {
     m_tInput = new std::thread([&]()
     {
-        while(m_pWindow->isOpen()) {
+        while(m_pWindow->isOpen()) 
+        {
+
         }
     });
 
