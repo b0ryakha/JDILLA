@@ -90,6 +90,6 @@ void CEntity::movePosition(const moveSide& cDirection)
             m_position.x += m_fSpeed;
             break;
         default:
-            throw "Unknow move type!";
+            throw "Unknown move type!";
     }
 }
