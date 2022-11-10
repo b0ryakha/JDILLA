@@ -86,21 +86,16 @@ CEngine::CEngine()
     m_pWindow = new sf::RenderWindow(sf::VideoMode(m_iWidth, m_iHeight), "JDILLA");
     m_pWindow->setActive(false);
 
-    this->InitPath();
-    this->InitAssets();
+    InitPath();
+    InitAssets();
 
     m_map.loadFromFile(GAME_PATH + "map/tiles.map");
 
-    this->Render();
-    this->Update();
-    this->Input();
-
     m_pWindow->setFramerateLimit(60);
 
-    while(m_pWindow->isOpen())
-    {
-        //TODO
-    }
+    Render();
+    Update();
+    Input();
 }
 
 CEngine::~CEngine()
@@ -108,5 +103,6 @@ CEngine::~CEngine()
     delete m_tRender;
     delete m_tUpdate;
     delete m_tInput;
+
     delete m_pWindow;
 }

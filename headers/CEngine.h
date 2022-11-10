@@ -11,8 +11,8 @@ private:
     sf::Event m_event;
     CMap m_map;
 
-    size_t m_iWidth = 1920;
-    size_t m_iHeight = 1080;
+    size_t m_iWidth = 1280;
+    size_t m_iHeight = 720;
 
     std::thread* m_tRender = nullptr;
     std::thread* m_tUpdate = nullptr;
