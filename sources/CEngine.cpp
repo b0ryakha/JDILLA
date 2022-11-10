@@ -84,14 +84,14 @@ size_t CEngine::getScreenHeight() const
 CEngine::CEngine()
 {
     m_pWindow = new sf::RenderWindow(sf::VideoMode(m_iWidth, m_iHeight), "JDILLA");
+
+    m_pWindow->setFramerateLimit(60);
     m_pWindow->setActive(false);
 
     InitPath();
     InitAssets();
 
     m_map.loadFromFile(GAME_PATH + "map/tiles.map");
-
-    m_pWindow->setFramerateLimit(60);
 
     Render();
     Update();
@@ -104,5 +104,6 @@ CEngine::~CEngine()
     delete m_tUpdate;
     delete m_tInput;
 
+    m_pWindow->close();
     delete m_pWindow;
 }
