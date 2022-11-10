@@ -49,5 +49,5 @@ public:
     void draw(sf::RenderWindow* pWindow) const;
 
     void setPosition(float fX, float fY);
-    void movePosition(const moveSide& cDirection);
+    void movePosition(const moveSide& direction);
 };

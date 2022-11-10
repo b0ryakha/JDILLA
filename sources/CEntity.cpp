@@ -73,9 +73,9 @@ void CEntity::setPosition(float fX, float fY)
     m_sprite.setPosition(fX, fY);
 }
 
-void CEntity::movePosition(const moveSide& cDirection)
+void CEntity::movePosition(const moveSide& direction)
 {
-    switch(cDirection)
+    switch(direction)
     {
         case moveSide::up:
             m_position.y -= m_fSpeed;
