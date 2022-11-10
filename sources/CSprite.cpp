@@ -15,6 +15,11 @@ CSprite::CSprite(const std::string& texturePath, const sf::Vector2f& texturePosi
 	m_sprite.setTexture(m_texture);
 }
 
+void CSprite::setPosition(const sf::Vector2f& position)
+{
+	m_sprite.setPosition(position.x, position.y);
+}
+
 sf::Sprite CSprite::getSprite() const
 {
 	return m_sprite;

@@ -14,6 +14,8 @@ private:
 public:
 	CSprite(const std::string& texturePath, const sf::Vector2f& texturePosition);
 
+	void setPosition(const sf::Vector2f& position);
+
 	CSprite& operator =(const CSprite& sprite);
 	operator sf::Sprite() const;
 };
