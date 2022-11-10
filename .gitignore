@@ -339,7 +339,4 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
-JDILLA.sln
-JDILLA.vcxproj
-JDILLA.vcxproj.filters
 build
