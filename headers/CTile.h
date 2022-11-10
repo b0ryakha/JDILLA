@@ -14,3 +14,5 @@ public:
 	void setPosition(const sf::Vector2f& position);
 	void draw(sf::RenderWindow* m_pWindow) const;
 };
+
+//inline std::map<std::string, > g_spriteList;

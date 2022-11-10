@@ -59,6 +59,8 @@ CEngine::CEngine()
 
     m_pWindow->setActive(false);
 
+    m_map.loadFromFile("C:/Users/tosha/OneDrive/Desktop/tiles.map");
+
     this->Render();
     this->Update();
     this->Input();
@@ -77,9 +79,4 @@ CEngine::~CEngine()
     delete m_tUpdate;
     delete m_tInput;
     delete m_pWindow;
-
-    m_tInput = nullptr;
-    m_tRender = nullptr;
-    m_tUpdate = nullptr;
-    m_pWindow = nullptr;
 }
