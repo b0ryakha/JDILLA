@@ -1,101 +1,95 @@
 #include "CEntity.h"
 
 CEntity::CEntity()
+    : m_sprite(*g_spriteList["ERROR"])
+{}
+
+CEntity::CEntity(const std::string& sName, const CSprite& sprite)
+    : m_sName(sName), m_sprite(sprite)
+{}
+
+void CEntity::setName(const std::string& sName)
 {
-    m_position.x = 0;
-    m_position.y = 0;
+    m_sName = sName;
 }
 
-CEntity::~CEntity()
+void CEntity::setHealth(float fHealth)
 {
-    delete m_sprite;
-    m_sprite = nullptr;
+    m_fHealth = fHealth;
 }
 
-void CEntity::setName(const std::string& m_sName)
+void CEntity::setArmor(float fArmor)
 {
-    this->m_sName = m_sName;
+    m_fArmor = fArmor;
 }
 
-void CEntity::setHealth(float m_fHealth)
+void CEntity::setSpeed(float fSpeed)
 {
-    this->m_fHealth = m_fHealth;
+    m_fSpeed = fSpeed;
 }
 
-void CEntity::setArmor(float m_fArmor)
+void CEntity::setSprite(const CSprite& sprite)
 {
-    this->m_fArmor = m_fArmor;
-}
-
-void CEntity::setSpeed(float m_fSpeed)
-{
-    this->m_fSpeed = m_fSpeed;
-}
-
-void CEntity::setSprite(sf::Sprite* m_sprite)
-{
-    this->m_sprite = m_sprite;
+    m_sprite = sprite;
 }
 
 std::string CEntity::getName() const
 {
-    return this->m_sName;
+    return m_sName;
 }
 
 float CEntity::getHealth() const
 {
-    return this->m_fHealth;
+    return m_fHealth;
 }
 
 float CEntity::getArmor() const
 {
-    return this->m_fArmor;
+    return m_fArmor;
 }
 
 float CEntity::getSpeed() const
 {
-    return this->m_fSpeed;
+    return m_fSpeed;
 }
 
-sf::Sprite CEntity::getSprite() const
+CSprite CEntity::getSprite() const
 {
-    return *this->m_sprite;
+    return m_sprite;
 }
 
 void CEntity::updateState()
 {
-    m_sprite->setPosition(m_position.x, m_position.y);
-}
-
-void CEntity::loadTexture(const std::string& m_sTexturePath) {
-    // TODO
+    m_sprite.setPosition(m_position.x, m_position.y);
 }
 
 void CEntity::draw(sf::RenderWindow* m_pWindow) const
 {
-    m_pWindow->draw(*m_sprite);
+    m_pWindow->draw(m_sprite);
 }
 
 void CEntity::setPosition(float fX, float fY)
 {
-    m_sprite->setPosition(fX, fY);
+    m_sprite.setPosition(fX, fY);
 }
 
-void CEntity::movePosition(char cDirection)
+void CEntity::movePosition(const moveSide& cDirection)
 {
     switch(cDirection)
     {
-        case 'U':
-            m_position.y -= this->m_fSpeed;
+        case moveSide::up:
+            m_position.y -= m_fSpeed;
             break;
-        case 'D':
-            m_position.y += this->m_fSpeed;
+        case moveSide::down:
+            m_position.y += m_fSpeed;
             break;
-        case 'L':
-            m_position.x -= this->m_fSpeed;
+        case moveSide::left:
+            m_position.x -= m_fSpeed;
             break;
-        case 'R':
-            m_position.x += this->m_fSpeed;
+        case moveSide::right:
+            m_position.x += m_fSpeed;
             break;
+        default:
+            throw "Unknow move type!";
     }
 }

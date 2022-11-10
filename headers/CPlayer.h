@@ -5,13 +5,11 @@
 class CPlayer : public CEntity
 {
 private:
-
-    float m_fExp;
-    unsigned short int m_iLevel;
+    float m_fExp = 0;
+    size_t m_iLevel = 1;
 
 public:
     void listenInput();
 
-    CPlayer();
-    ~CPlayer();
+    CPlayer(const std::string& sName, const CSprite& sprite);
 };

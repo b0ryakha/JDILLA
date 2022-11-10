@@ -2,35 +2,30 @@
 
 void CPlayer::listenInput()
 {
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
-        this->movePosition('U');
+        movePosition(moveSide::up);
     }
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
-        this->movePosition('D');
+        movePosition(moveSide::down);
     }
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
-        this->movePosition('L');
+        movePosition(moveSide::left);
     }
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
-        this->movePosition('R');
+        movePosition(moveSide::right);
     }
 }
 
-CPlayer::CPlayer()
+CPlayer::CPlayer(const std::string& sName, const CSprite& sprite)
 {
-
-    this->setSpeed(0.03f);
-
-}
-
-CPlayer::~CPlayer()
-{
-
+    setSpeed(0.03f);
+    setName(sName);
+    setSprite(sprite);
 }
