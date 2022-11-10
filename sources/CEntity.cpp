@@ -75,7 +75,7 @@ void CEntity::setPosition(float fX, float fY)
 
 void CEntity::movePosition(const moveSide& direction)
 {
-    switch(direction)
+    switch (direction)
     {
         case moveSide::up:
             m_position.y -= m_fSpeed;

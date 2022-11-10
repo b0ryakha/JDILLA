@@ -22,10 +22,7 @@ void CEngine::Input()
 {
     m_tInput = new std::thread([&]
     {
-        while (m_pWindow->isOpen()) 
-        {
-
-        }
+        if (!m_pWindow->isOpen()) return;
     });
 
     m_tInput->detach();
@@ -35,12 +32,22 @@ void CEngine::Update()
 {
     m_tUpdate = new std::thread([&]
     {
-        while(m_pWindow->isOpen())
+        if (!m_pWindow->isOpen()) return;
+
+        while (m_pWindow->pollEvent(m_event))
         {
-            while (m_pWindow->pollEvent(m_event))
+            switch (m_event.type)
             {
-                if (m_event.type == sf::Event::Closed)
-                    m_pWindow->close();
+            case sf::Event::Closed:
+                m_pWindow->close();
+                break;
+            case sf::Event::LostFocus:
+                m_pWindow->setActive(false);
+                // need hide window function.
+                break;
+            case sf::Event::GainedFocus:
+                m_pWindow->setActive(true);
+                break;
             }
         }
     });
@@ -52,14 +59,13 @@ void CEngine::Render()
 {
     m_tRender = new std::thread([&]
     {
-        while (m_pWindow->isOpen())
-        {
-            m_pWindow->clear(sf::Color(200, 200, 200));
-            
-            m_map.draw(m_pWindow);
+        if (!m_pWindow->isOpen()) return;
+        
+        m_pWindow->clear(sf::Color(200, 200, 200));
 
-            m_pWindow->display();
-        }
+        m_map.draw(m_pWindow);
+
+        m_pWindow->display();
     });
 
     m_tRender->detach();
