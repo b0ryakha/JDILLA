@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <thread>
+#include <string>
 #include "CMap.h"
 
 class CEngine
@@ -18,6 +19,7 @@ private:
     std::thread* m_tInput = nullptr;
 
 public:
+    void InitPath();
     void InitAssets();
     void Input();
     void Update();
@@ -29,3 +31,5 @@ public:
     CEngine();
     ~CEngine();
 };
+
+inline std::string GAME_PATH;

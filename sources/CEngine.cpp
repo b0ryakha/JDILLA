@@ -2,14 +2,27 @@
 
 void CEngine::InitAssets()
 {
-    g_spriteList["ERROR"] = new CSprite("C:/Users/tosha/OneDrive/Desktop/assets.png", sf::Vector2f(0, 0));
+    g_spriteList["ERROR"] = new CSprite(GAME_PATH + "assets/error.png", sf::Vector2f(0, 0));
+}
+
+void CEngine::InitPath()
+{
+    #ifdef _WIN32
+        GAME_PATH = "D:/Games/";
+    #endif
+
+    #ifdef linux
+        GAME_PATH = "";
+    #endif
+
+    GAME_PATH += "JDILLA/";
 }
 
 void CEngine::Input()
 {
-    m_tInput = new std::thread([&]()
+    m_tInput = new std::thread([&]
     {
-        while(m_pWindow->isOpen()) 
+        while (m_pWindow->isOpen()) 
         {
 
         }
@@ -20,11 +33,11 @@ void CEngine::Input()
 
 void CEngine::Update()
 {
-    m_tUpdate = new std::thread([&]()
+    m_tUpdate = new std::thread([&]
     {
         while(m_pWindow->isOpen())
         {
-            while(m_pWindow->pollEvent(m_event))
+            while (m_pWindow->pollEvent(m_event))
             {
                 if (m_event.type == sf::Event::Closed)
                     m_pWindow->close();
@@ -37,24 +50,28 @@ void CEngine::Update()
 
 void CEngine::Render()
 {
-    m_tRender = new std::thread([&]()
+    m_tRender = new std::thread([&]
     {
-        while(m_pWindow->isOpen())
+        while (m_pWindow->isOpen())
         {
-            m_pWindow->clear(sf::Color(44, 53, 59));
-            m_pWindow->display();
+            m_pWindow->clear(sf::Color(200, 200, 200));
+            
             m_map.draw(m_pWindow);
+
+            m_pWindow->display();
         }
     });
 
     m_tRender->detach();
 }
 
-size_t CEngine::getScreenWidth() const {
+size_t CEngine::getScreenWidth() const
+{
     return m_iWidth;
 }
 
-size_t CEngine::getScreenHeight() const {
+size_t CEngine::getScreenHeight() const
+{
     return m_iHeight;
 }
 
@@ -63,9 +80,10 @@ CEngine::CEngine()
     m_pWindow = new sf::RenderWindow(sf::VideoMode(m_iWidth, m_iHeight), "JDILLA");
     m_pWindow->setActive(false);
 
+    this->InitPath();
     this->InitAssets();
 
-    m_map.loadFromFile("C:/Users/tosha/OneDrive/Desktop/tiles.map");
+    m_map.loadFromFile(GAME_PATH + "map/tiles.map");
 
     this->Render();
     this->Update();
@@ -75,7 +93,7 @@ CEngine::CEngine()
 
     while(m_pWindow->isOpen())
     {
-
+        //TODO
     }
 }
 
