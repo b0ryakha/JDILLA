@@ -1,7 +1,7 @@
 #include "CTile.h"
 
-CTile::CTile(const sf::Vector2f& position, const sf::Texture& texture)
-	: m_position(position), m_sprite(texture)
+CTile::CTile(const sf::Vector2f& position, const CSprite& sprite)
+	: m_position(position), m_sprite(sprite)
 {}
 
 void CTile::setPosition(const sf::Vector2f& position)
@@ -9,7 +9,7 @@ void CTile::setPosition(const sf::Vector2f& position)
 	m_position = position;
 }
 
-void CTile::draw(sf::RenderWindow* m_pWindow) const
+void CTile::draw(sf::RenderWindow* pWindow) const
 {
-	m_pWindow->draw(m_sprite);
+	pWindow->draw(m_sprite);
 }

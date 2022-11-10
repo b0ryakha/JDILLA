@@ -18,6 +18,7 @@ private:
     std::thread* m_tInput = nullptr;
 
 public:
+    void InitAssets();
     void Input();
     void Update();
     void Render();

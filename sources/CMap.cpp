@@ -18,7 +18,7 @@ void CMap::draw(sf::RenderWindow* m_pWindow) const
 void CMap::loadFromFile(const std::string& file_path)
 {
 	if (!fs::exists(file_path))
-		throw "File of tiles for map can\'t find!";
+		throw "File of tiles for map can't find!";
 
 	std::ifstream file(file_path, std::ios::binary);
 	std::vector<char> file_contents((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
@@ -80,8 +80,14 @@ void CMap::loadFromFile(const std::string& file_path)
 					{
 						if (symbol == '}')
 						{
-							std::cout << "x: " << x << "\ty: " << y << "\tname: " << tmp_s << "\n";
-							//m_field.push_back(std::move(CTile(sf::Vector2f(x, y), g_spriteList[tmp_s])));
+							if (g_spriteList.count(tmp_s) <= 0) tmp_s = "ERROR";
+							else
+							{
+								for (auto& ch : tmp_s)
+									ch = std::tolower(ch);
+							}
+
+							m_field.push_back(std::move(CTile(sf::Vector2f(x, y), *g_spriteList[tmp_s])));
 
 							x = 0;
 							y = 0;

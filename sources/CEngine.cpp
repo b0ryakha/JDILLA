@@ -1,5 +1,10 @@
 #include "CEngine.h"
 
+void CEngine::InitAssets()
+{
+    g_spriteList["ERROR"] = new CSprite("C:/Users/tosha/OneDrive/Desktop/assets.png", sf::Vector2f(0, 0));
+}
+
 void CEngine::Input()
 {
     m_tInput = new std::thread([&]()
@@ -56,8 +61,9 @@ size_t CEngine::getScreenHeight() const {
 CEngine::CEngine()
 {
     m_pWindow = new sf::RenderWindow(sf::VideoMode(m_iWidth, m_iHeight), "JDILLA");
-
     m_pWindow->setActive(false);
+
+    this->InitAssets();
 
     m_map.loadFromFile("C:/Users/tosha/OneDrive/Desktop/tiles.map");
 

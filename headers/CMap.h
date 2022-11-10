@@ -10,8 +10,6 @@
 #include <algorithm>
 #include <sstream>
 
-#include <iostream>
-
 #include "CEntity.h"
 #include "CTile.h"
 
