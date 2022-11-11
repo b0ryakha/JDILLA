@@ -4,12 +4,13 @@
 #include <string>
 #include "CMap.h"
 
+#include "CPlayer.h"
+
 class CEngine
 {
 private:
-    sf::RenderWindow* m_pWindow;
+    sf::RenderWindow m_window;
     sf::Event m_event;
-    CMap m_map;
 
     size_t m_iWidth = 1280;
     size_t m_iHeight = 720;
@@ -17,6 +18,8 @@ private:
     std::thread* m_tRender = nullptr;
     std::thread* m_tUpdate = nullptr;
     std::thread* m_tInput = nullptr;
+
+    CMap m_map;
 
 public:
     void InitPath();

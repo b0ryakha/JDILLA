@@ -11,7 +11,7 @@ private:
 public:
 	CTile(const sf::Vector2f& position, const CSprite& sprite);
 
-	void draw(sf::RenderWindow* pWindow) const;
+	void draw(sf::RenderWindow& pWindow) const;
 };
 
 inline std::map<std::string, CSprite*> g_spriteList;

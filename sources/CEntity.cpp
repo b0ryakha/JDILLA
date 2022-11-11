@@ -63,9 +63,9 @@ void CEntity::updateState()
     m_sprite.setPosition(m_position.x, m_position.y);
 }
 
-void CEntity::draw(sf::RenderWindow* m_pWindow) const
+void CEntity::draw(sf::RenderWindow& m_window) const
 {
-    m_pWindow->draw(m_sprite);
+    m_window.draw(m_sprite);
 }
 
 void CEntity::setPosition(float fX, float fY)

@@ -4,6 +4,7 @@
 #include <string>
 
 #include "CTile.h"
+#include "CEntity.h"
 
 enum class moveSide {
     up, down, left, right
@@ -46,7 +47,7 @@ public:
 
     void updateState();
 
-    void draw(sf::RenderWindow* pWindow) const;
+    void draw(sf::RenderWindow& pWindow) const;
 
     void setPosition(float fX, float fY);
     void movePosition(const moveSide& direction);

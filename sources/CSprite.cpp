@@ -7,8 +7,7 @@ CSprite::CSprite(const std::string& texturePath, const sf::Vector2f& texturePosi
 
 	if (!m_texture.loadFromFile(texturePath, sf::IntRect(texturePosition.x, texturePosition.y, weight, height)))
 	{
-		std::cout << "File on path '" + texturePath + "' can't find or open!";
-		throw -1;
+		throw "File can't find or open!";
 	}
 
 	m_texture.setSmooth(true);

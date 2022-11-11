@@ -7,12 +7,13 @@ CMap::CMap(const std::vector<CTile>& field)
 	: m_field(field)
 {}
 
-void CMap::draw(sf::RenderWindow* m_pWindow) const
+void CMap::draw(sf::RenderWindow& m_window) const
 {
 	for (const auto& tile : m_field)
-	{
-		tile.draw(m_pWindow);
-	}
+		tile.draw(m_window);
+
+	for (auto entity : m_entitys)
+		entity->draw(m_window);
 }
 
 void CMap::loadFromFile(const std::string& file_path)
@@ -103,4 +104,9 @@ void CMap::loadFromFile(const std::string& file_path)
 		}
 		else if (symbol == '{') flags[0] = true;
 	}
+}
+
+void CMap::addEntity(CEntity* entity)
+{
+	m_entitys.push_back(entity);
 }

@@ -19,12 +19,13 @@ class CMap
 {
 private:
 	std::vector<CTile> m_field;
-	std::vector<CEntity*> m_entities;
+	std::vector<CEntity*> m_entitys;
 
 public:
 	CMap();
 	CMap(const std::vector<CTile>& field);
 
-	void draw(sf::RenderWindow* m_pWindow) const;
+	void draw(sf::RenderWindow& m_window) const;
 	void loadFromFile(const std::string& file_path);
+	void addEntity(CEntity* entity);
 };
