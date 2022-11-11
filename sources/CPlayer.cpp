@@ -29,3 +29,11 @@ CPlayer::CPlayer(const std::string& sName, const CSprite& sprite)
     setName(sName);
     setSprite(sprite);
 }
+
+CPlayer::CPlayer(const std::string& sName, const CSprite& sprite, const sf::Vector2f& position)
+{
+    setSpeed(0.03f);
+    setName(sName);
+    setSprite(sprite);
+    setPosition(position.x, position.y);
+}

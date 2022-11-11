@@ -12,4 +12,5 @@ public:
     void listenInput();
 
     CPlayer(const std::string& sName, const CSprite& sprite);
+    CPlayer(const std::string& sName, const CSprite& sprite, const sf::Vector2f& position);
 };

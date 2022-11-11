@@ -8,6 +8,10 @@ CEntity::CEntity(const std::string& sName, const CSprite& sprite)
     : m_sName(sName), m_sprite(sprite)
 {}
 
+CEntity::CEntity(const std::string& sName, const CSprite& sprite, const sf::Vector2f& position)
+    : m_sName(sName), m_sprite(sprite), m_position(position)
+{}
+
 void CEntity::setName(const std::string& sName)
 {
     m_sName = sName;
@@ -56,6 +60,11 @@ float CEntity::getSpeed() const
 CSprite CEntity::getSprite() const
 {
     return m_sprite;
+}
+
+sf::Vector2f CEntity::getPosition() const
+{
+    return m_position;
 }
 
 void CEntity::updateState()

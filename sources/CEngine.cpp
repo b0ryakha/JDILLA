@@ -3,7 +3,8 @@
 void CEngine::InitAssets()
 {
     g_spriteList["ERROR"] = new CSprite(GAME_PATH + "assets/error.png", sf::Vector2f(0, 0));
-    g_spriteList["player"] = new CSprite(GAME_PATH + "assets/player.png", sf::Vector2f(0, 0));
+    g_spriteList["ghost"] = new CSprite(GAME_PATH + "assets/ghost.png", sf::Vector2f(0, 0));
+    g_spriteList["cowboy"] = new CSprite(GAME_PATH + "assets/cowboy.png", sf::Vector2f(0, 0));
 }
 
 void CEngine::InitPath()
@@ -100,7 +101,9 @@ CEngine::CEngine()
     InitAssets();
 
     m_map.loadFromFile(GAME_PATH + "map/tiles.map");
-    m_map.addEntity(new CPlayer("Player", *g_spriteList["player"]));
+
+    m_map.addEntity(CPlayer("Booloy", *g_spriteList["ghost"], sf::Vector2f(500, 500)));
+    m_map.addEntity(CPlayer("Holbuy", *g_spriteList["cowboy"], sf::Vector2f(500, 480)));
 
     Render();
     Update();

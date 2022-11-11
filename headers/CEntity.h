@@ -4,7 +4,6 @@
 #include <string>
 
 #include "CTile.h"
-#include "CEntity.h"
 
 enum class moveSide {
     up, down, left, right
@@ -28,6 +27,7 @@ private:
 public:
     CEntity();
     CEntity(const std::string& sName, const CSprite& sprite);
+    CEntity(const std::string& sName, const CSprite& sprite, const sf::Vector2f& position);
 
     void setName(const std::string& sName);
 
@@ -44,6 +44,7 @@ public:
     float getSpeed() const;
 
     CSprite getSprite() const;
+    sf::Vector2f getPosition() const;
 
     void updateState();
 
