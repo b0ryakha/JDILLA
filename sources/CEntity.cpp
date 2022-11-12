@@ -1,9 +1,5 @@
 #include "CEntity.h"
 
-CEntity::CEntity()
-    : m_sprite(*g_spriteList["ERROR"])
-{}
-
 CEntity::CEntity(const std::string& sName, const CSprite& sprite)
     : m_sName(sName), m_sprite(sprite)
 {}
@@ -67,7 +63,7 @@ sf::Vector2f CEntity::getPosition() const
     return m_position;
 }
 
-void CEntity::updateState()
+void CEntity::updateState() const
 {
     m_sprite.setPosition(m_position.x, m_position.y);
 }

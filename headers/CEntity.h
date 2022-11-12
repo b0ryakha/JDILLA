@@ -21,11 +21,10 @@ private:
     float m_fMaxHealth = 0;
     float m_fMaxArmor = 0;
 
-    CSprite m_sprite;
+    mutable CSprite m_sprite { *g_spriteList["ERROR"] };
     sf::Vector2f m_position { 0, 0 };
 
 public:
-    CEntity();
     CEntity(const std::string& sName, const CSprite& sprite);
     CEntity(const std::string& sName, const CSprite& sprite, const sf::Vector2f& position);
 
@@ -46,7 +45,7 @@ public:
     CSprite getSprite() const;
     sf::Vector2f getPosition() const;
 
-    void updateState();
+    void updateState() const;
 
     void draw(sf::RenderWindow& pWindow) const;
 

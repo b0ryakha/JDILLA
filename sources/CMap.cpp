@@ -12,7 +12,7 @@ void CMap::draw(sf::RenderWindow& m_window) const
 	for (const auto& tile : m_field)
 		tile.draw(m_window);
 
-	for (auto entity : m_entitys)
+	for (const auto& entity : m_entitys)
 		entity.draw(m_window);
 }
 
@@ -109,12 +109,15 @@ void CMap::loadFromFile(const std::string& file_path)
 void CMap::addEntity(const CEntity& entity)
 {
 	m_entitys.push_back(std::move(entity));
+}
 
-	//std::sort(m_entitys.begin(), m_entitys.end(), [](const CEntity& first, const CEntity& second) -> bool
-	//{
-	//	std::cout << first.getName() << ": " << first.getPosition().y << ", " << second.getName() << ": " << second.getPosition().y << " | ";
-	//	std::cout << ((first.getPosition().y < second.getPosition().y) ? "true\n" : "false\n");
-	//
-	//	return first.getPosition().y < second.getPosition().y;
-	//});
+void CMap::updateEntity() const
+{
+	for (auto& entity : m_entitys)
+		entity.updateState();
+
+	std::sort(m_entitys.begin(), m_entitys.end(), [](const CEntity& first, const CEntity& second)
+	{
+		return first.getPosition().y < second.getPosition().y;
+	});
 }

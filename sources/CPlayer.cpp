@@ -24,16 +24,13 @@ void CPlayer::listenInput()
 }
 
 CPlayer::CPlayer(const std::string& sName, const CSprite& sprite)
+    : CEntity(sName, sprite)
 {
     setSpeed(0.03f);
-    setName(sName);
-    setSprite(sprite);
 }
 
 CPlayer::CPlayer(const std::string& sName, const CSprite& sprite, const sf::Vector2f& position)
+    : CEntity(sName, sprite, position)
 {
     setSpeed(0.03f);
-    setName(sName);
-    setSprite(sprite);
-    setPosition(position.x, position.y);
 }

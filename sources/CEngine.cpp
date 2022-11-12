@@ -55,6 +55,8 @@ void CEngine::Update()
                     break;
                 }
             }
+
+            m_map.updateEntity();
         }
     });
 
@@ -103,7 +105,7 @@ CEngine::CEngine()
     m_map.loadFromFile(GAME_PATH + "map/tiles.map");
 
     m_map.addEntity(CPlayer("Booloy", *g_spriteList["ghost"], sf::Vector2f(500, 500)));
-    m_map.addEntity(CPlayer("Holbuy", *g_spriteList["cowboy"], sf::Vector2f(500, 480)));
+    m_map.addEntity(CPlayer("Holbuy", *g_spriteList["cowboy"], sf::Vector2f(500, 470)));
 
     Render();
     Update();
