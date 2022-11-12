@@ -111,7 +111,7 @@ void CMap::addEntity(const CEntity& entity)
 	m_entitys.push_back(std::move(entity));
 }
 
-void CMap::update() const
+void CMap::update()
 {
 	for (auto& entity : m_entitys)
 		entity.updateState();
