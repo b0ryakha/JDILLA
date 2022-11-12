@@ -28,5 +28,5 @@ public:
 	void draw(sf::RenderWindow& m_window) const;
 	void loadFromFile(const std::string& file_path);
 	void addEntity(const CEntity& entity);
-	void updateEntity() const;
+	void update() const;
 };

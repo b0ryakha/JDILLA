@@ -56,7 +56,7 @@ void CEngine::Update()
                 }
             }
 
-            m_map.updateEntity();
+            m_map.update();
         }
     });
 
