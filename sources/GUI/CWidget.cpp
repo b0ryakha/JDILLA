@@ -1,7 +1,4 @@
 #include "GUI/CWidget.h"
-#include <SFML/Graphics/RenderWindow.hpp>
-#include <SFML/System/Vector2.hpp>
-#include <SFML/Window/Mouse.hpp>
 
 graphics::CWidget::CWidget()
 { 
@@ -20,7 +17,7 @@ sf::Text graphics::CWidget::getLabel() const
 
 void graphics::CWidget::setLabel(const std::string& sLabel)
 {
-    this->m_sLabel.setString(sLabel);
+    m_sLabel.setString(sLabel);
 }
 
 bool graphics::CWidget::getVisibility() const
@@ -35,8 +32,7 @@ sf::Vector2f graphics::CWidget::getSize() const
 
 void graphics::CWidget::setSize(float fX, float fY)
 {
-    this->m_size.x = fX;
-    this->m_size.y = fY;
+    m_size = { fX, fY };
 }
 
 sf::Vector2f graphics::CWidget::getPosition() const
@@ -44,56 +40,60 @@ sf::Vector2f graphics::CWidget::getPosition() const
     return m_position;
 }
 
-void graphics::CWidget::setPosition(const float fX, const float fY)
+void graphics::CWidget::setPosition(float fX, float fY)
 {
-    this->m_position.x = fX;
-    this->m_position.y = fY;
+    m_position = { fX, fY };
 }
 
 void graphics::CWidget::show()
 {
-    this->m_bIsVisible = true;
+    m_bIsVisible = true;
 }
 
 void graphics::CWidget::hide()
 {
-    this->m_bIsVisible = false;
+    m_bIsVisible = false;
 }
 
 bool graphics::CWidget::isHovered() const
 {
-    return (sf::Mouse::getPosition().x > m_position.x 
-    && sf::Mouse::getPosition().x < (sf::Mouse::getPosition().x + m_position.x)); 
+    return (sf::Mouse::getPosition().x > m_position.x &&
+        sf::Mouse::getPosition().x < (sf::Mouse::getPosition().x + m_position.x)); 
 }
 
 void graphics::CWidget::checkState()
 {
-    if(m_bIsVisible)
+    if (!m_bIsVisible || m_eState == widgetState::DISABLED)
+        return;
+    
+    if (isHovered())
     {
-        if (m_eState != widgetState::DISABLED)
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
         {
-            if(this->isHovered())
-            {
-                if (sf::Mouse::isButtonPressed(sf::Mouse::Left))        
-                {
-                    this->m_eState = widgetState::PRESSED;
-                } 
-                else
-                {
-                    this->m_eState = widgetState::HOVERED;
-                }
-            }
-            else
-            {
-                this->m_eState = widgetState::ENABLED;
-            }
+            m_eState = widgetState::PRESSED;
         }
-
+        else
+        {
+            m_eState = widgetState::HOVERED;
+        }
     }
-        
+    else
+    {
+        m_eState = widgetState::ENABLED;
+    }
 }
 
-void graphics::CWidget::renderWidget(sf::RenderWindow *pWindow)
+graphics::widgetState graphics::CWidget::getState()
+{
+    return m_eState;
+}
+
+void graphics::CWidget::setState(const widgetState& eWidgetState)
+{
+    m_eState = eWidgetState;
+}
+
+void graphics::CWidget::renderWidget(sf::RenderWindow& pWindow)
 {
     
 }

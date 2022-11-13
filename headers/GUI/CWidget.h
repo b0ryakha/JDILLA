@@ -1,9 +1,6 @@
 #pragma once
 
-#include <SFML/Graphics/RenderWindow.hpp>
-#include <SFML/Graphics/Shape.hpp>
-#include <SFML/Graphics/Text.hpp>
-#include <SFML/System/Vector2.hpp>
+#include <SFML/Graphics.hpp>
 
 #include <string>
 
@@ -19,25 +16,23 @@ namespace graphics
 
     class CWidget
     {
-private:
+    private:
         sf::Text m_sLabel;
+        sf::Vector2f m_position { 0, 0 };
+        sf::Vector2f m_size { 0, 0 };
 
-        bool m_bIsVisible;
-
-        sf::Vector2f m_position;
-        sf::Vector2f m_size;
-
-        sf::Shape *m_shape;
+        sf::Shape *m_shape = nullptr;
 
         widgetState m_eState;
+        bool m_bIsVisible;
 
         bool isHovered() const;
-public: 
+    public: 
         CWidget();
         ~CWidget();
 
         sf::Text getLabel() const;
-        void setLabel(const std::string &sLabel);
+        void setLabel(const std::string& sLabel);
 
         bool getVisibility() const;
         
@@ -47,13 +42,13 @@ public:
         sf::Vector2f getPosition() const;
         void setPosition(float fX, float fY);
 
-        widgetState getWidgetState();
-        void setWidgetState(const widgetState &eWidgetState);
+        widgetState getState();
+        void setState(const widgetState& eWidgetState);
 
         void show();
         void hide();
 
         void checkState();
-        void renderWidget(sf::RenderWindow *pWindow);
+        void renderWidget(sf::RenderWindow& pWindow);
     };
 }

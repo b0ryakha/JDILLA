@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\GUI">
+      <UniqueIdentifier>{2ef563f0-2782-4b8e-b74e-7859dc88b48e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GUI">
+      <UniqueIdentifier>{9c396acb-462c-47dd-95af-e998cfc8fa70}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sources\main.cpp">
@@ -36,6 +42,9 @@
     <ClCompile Include="sources\CSprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="sources\GUI\CWidget.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\CEngine.h">
@@ -55,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="headers\CSprite.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\GUI\CWidget.h">
+      <Filter>Header Files\GUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

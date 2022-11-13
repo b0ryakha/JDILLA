@@ -148,6 +148,7 @@
     <ClCompile Include="sources\CEngine.cpp" />
     <ClCompile Include="sources\CEntity.cpp" />
     <ClCompile Include="sources\CPlayer.cpp" />
+    <ClCompile Include="sources\GUI\CWidget.cpp" />
     <ClCompile Include="sources\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +158,7 @@
     <ClInclude Include="headers\CEngine.h" />
     <ClInclude Include="headers\CEntity.h" />
     <ClInclude Include="headers\CPlayer.h" />
+    <ClInclude Include="headers\GUI\CWidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
