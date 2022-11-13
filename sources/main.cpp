@@ -1,6 +1,4 @@
 #include "CEngine.h"
-#include "CPlayer.h"
-#include "CSprite.h"
 
 #ifdef _WIN32
 #include <windows.h>

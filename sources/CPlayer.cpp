@@ -1,5 +1,7 @@
 #include "CPlayer.h"
 
+extern float g_time;
+
 CPlayer::CPlayer(const std::string& sName, const CSprite& sprite)
     : CEntity(sName, sprite)
 {}
