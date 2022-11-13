@@ -20,13 +20,22 @@ void CEngine::initPath()
     g_sGamePath += "JDILLA/";
 }
 
+void CEngine::initObjects()
+{
+    m_map.loadFromFile(g_sGamePath + "map/tiles.map");
+
+    m_localPlayer = new CPlayer("Human", *g_spriteList["cowboy"], sf::Vector2f(100, 100));
+
+    m_entities.push_back(new CPlayer("Booloy", *g_spriteList["ghost"], sf::Vector2f(500, 500)));
+}
+
 void CEngine::inputThread()
 {
     m_tInput = new std::thread([&]
     {
         while (m_window.isOpen())
         {
-        
+            m_localPlayer->listenInput();
         }
     });
 
@@ -56,7 +65,10 @@ void CEngine::updateThread()
                 }
             }
 
-            m_map.update();
+            for (auto* entity : m_entities)
+                entity->updateState();
+
+            m_localPlayer->updateState();
         }
     });
 
@@ -72,6 +84,11 @@ void CEngine::renderThread()
             m_window.clear(sf::Color(200, 200, 200));
 
             m_map.draw(m_window);
+
+            for (auto* entity : m_entities)
+                entity->draw(m_window);
+
+            m_localPlayer->draw(m_window);
 
             m_window.display();
         }
@@ -101,11 +118,7 @@ CEngine::CEngine()
 
     initPath();
     initAssets();
-
-    m_map.loadFromFile(g_sGamePath + "map/tiles.map");
-
-    m_map.addEntity(CPlayer("Booloy", *g_spriteList["ghost"], sf::Vector2f(500, 500)));
-    m_map.addEntity(CPlayer("Holbuy", *g_spriteList["cowboy"], sf::Vector2f(500, 470)));
+    initObjects();
 
     renderThread();
     updateThread();

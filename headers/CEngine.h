@@ -20,10 +20,13 @@ private:
     std::thread* m_tInput = nullptr;
 
     CMap m_map;
+    std::vector<CEntity*> m_entities;
+    CPlayer* m_localPlayer = nullptr;
 
 public:
     void initPath();
     void initAssets();
+    void initObjects();
 
     void inputThread();
     void updateThread();

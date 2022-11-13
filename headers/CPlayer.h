@@ -5,14 +5,14 @@
 class CPlayer : public CEntity
 {
 private:
-    float m_health = 0;
-    float m_maxHealth = 0;
+    float m_health = 80;
+    float m_maxHealth = 100;
     float m_armor = 0;
-    float m_maxArmor = 0;
-    float m_speed = 0;
+    float m_maxArmor = 50;
+    float m_speed = 10;
     float m_xp = 0;
     float m_lvl = 1;
-    float m_maxLvl = 0;
+    float m_maxLvl = 100;
 
 public:
     CPlayer(const std::string& sName, const CSprite& sprite);

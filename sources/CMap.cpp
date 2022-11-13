@@ -11,9 +11,6 @@ void CMap::draw(sf::RenderWindow& m_window) const
 {
 	for (const auto& tile : m_field)
 		tile.draw(m_window);
-
-	for (const auto& entity : m_entities)
-		entity.draw(m_window);
 }
 
 void CMap::loadFromFile(const std::string& file_path)
@@ -104,20 +101,4 @@ void CMap::loadFromFile(const std::string& file_path)
 		}
 		else if (symbol == '{') flags[0] = true;
 	}
-}
-
-void CMap::addEntity(const CEntity& entity)
-{
-	m_entities.push_back(std::move(entity));
-}
-
-void CMap::update()
-{
-	for (auto& entity : m_entities)
-		entity.updateState();
-
-	std::sort(m_entities.begin(), m_entities.end(), [](const CEntity& first, const CEntity& second)
-	{
-		return first.getPosition().y < second.getPosition().y;
-	});
 }
