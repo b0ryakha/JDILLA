@@ -28,7 +28,6 @@ void CEntity::setSprite(const CSprite& sprite)
     m_sprite = sprite;
 }
 
-
 sf::Vector2f CEntity::getPosition() const
 {
     return m_position;
@@ -36,7 +35,7 @@ sf::Vector2f CEntity::getPosition() const
 
 void CEntity::setPosition(float fX, float fY)
 {
-    m_sprite.setPosition(fX, fY);
+    m_position = { fX, fY };
 }
 
 void CEntity::updateState()

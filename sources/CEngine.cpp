@@ -50,19 +50,8 @@ void CEngine::updateThread()
         {
             while (m_window.pollEvent(m_event))
             {
-                switch (m_event.type)
-                {
-                case sf::Event::Closed:
+                if (m_event.type == sf::Event::Closed)
                     m_window.close();
-                    break;
-                case sf::Event::LostFocus:
-                    m_window.setActive(false);
-                    // need hide window function.
-                    break;
-                case sf::Event::GainedFocus:
-                    m_window.setActive(true);
-                    break;
-                }
             }
 
             for (auto* entity : m_entities)

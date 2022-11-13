@@ -9,7 +9,7 @@ private:
     float m_maxHealth = 100;
     float m_armor = 0;
     float m_maxArmor = 50;
-    float m_speed = 10;
+    float m_speed = 0.3;
     float m_xp = 0;
     float m_lvl = 1;
     float m_maxLvl = 100;
