@@ -19,7 +19,7 @@ class CMap
 {
 private:
 	std::vector<CTile> m_field;
-	std::vector<CEntity> m_entitys;
+	std::vector<CEntity> m_entities;
 
 public:
 	CMap();

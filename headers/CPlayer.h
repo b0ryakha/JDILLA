@@ -1,18 +1,46 @@
 #pragma once
 
 #include "CEntity.h"
-#include "CCharacteristic.h"
 
 class CPlayer : public CEntity
 {
 private:
-    CCharacteristic m_characteristic;
+    float m_health = 0;
+    float m_maxHealth = 0;
+    float m_armor = 0;
+    float m_maxArmor = 0;
+    float m_speed = 0;
+    float m_xp = 0;
+    float m_lvl = 1;
+    float m_maxLvl = 0;
 
 public:
-    CPlayer(const std::string& sName, const CSprite& sprite, const CCharacteristic& characteristic);
-    CPlayer(const std::string& sName, const CSprite& sprite, const CCharacteristic& characteristic, const sf::Vector2f& position);
+    CPlayer(const std::string& sName, const CSprite& sprite);
+    CPlayer(const std::string& sName, const CSprite& sprite, const sf::Vector2f& position);
 
     void listenInput();
-    float getCharacteristic(const Characteristic& characteristicName) const;
-    void setCharacteristic(const Characteristic& characteristicName, float value);
+
+    float getHealth() const;
+    void setHealth(float value);
+
+    float getMaxHealth() const;
+    void setMaxHealth(float value);
+
+    float getArmor() const;
+    void setArmor(float value);
+
+    float getMaxArmor() const;
+    void setMaxArmor(float value);
+
+    float getSpeed() const;
+    void setSpeed(float value);
+
+    float getXp() const;
+    void setXp(float value);
+
+    float getLvl() const;
+    void setLvl(float value);
+
+    float getMaxLvl() const;
+    void setMaxLvl(float value);
 };

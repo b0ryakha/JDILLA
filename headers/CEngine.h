@@ -22,11 +22,12 @@ private:
     CMap m_map;
 
 public:
-    void InitPath();
-    void InitAssets();
-    void Input();
-    void Update();
-    void Render();
+    void initPath();
+    void initAssets();
+
+    void inputThread();
+    void updateThread();
+    void renderThread();
 
     size_t getScreenWidth() const;
     size_t getScreenHeight() const;
@@ -35,4 +36,4 @@ public:
     ~CEngine();
 };
 
-inline std::string GAME_PATH;
+inline std::string g_sGamePath;

@@ -1,26 +1,26 @@
 #include "CEngine.h"
 
-void CEngine::InitAssets()
+void CEngine::initAssets()
 {
-    g_spriteList["ERROR"] = new CSprite(GAME_PATH + "assets/error.png", sf::Vector2f(0, 0));
-    g_spriteList["ghost"] = new CSprite(GAME_PATH + "assets/ghost.png", sf::Vector2f(0, 0));
-    g_spriteList["cowboy"] = new CSprite(GAME_PATH + "assets/cowboy.png", sf::Vector2f(0, 0));
+    g_spriteList["ERROR"] = new CSprite(g_sGamePath + "assets/error.png", sf::Vector2f(0, 0));
+    g_spriteList["ghost"] = new CSprite(g_sGamePath + "assets/ghost.png", sf::Vector2f(0, 0));
+    g_spriteList["cowboy"] = new CSprite(g_sGamePath + "assets/cowboy.png", sf::Vector2f(0, 0));
 }
 
-void CEngine::InitPath()
+void CEngine::initPath()
 {
     #ifdef _WIN32
-        GAME_PATH = "D:/Games/";
+        g_sGamePath = "D:/Games/";
     #endif
 
     #ifdef linux
-        GAME_PATH = "";
+        g_sGamePath = "~/";
     #endif
 
-    GAME_PATH += "JDILLA/";
+    g_sGamePath += "JDILLA/";
 }
 
-void CEngine::Input()
+void CEngine::inputThread()
 {
     m_tInput = new std::thread([&]
     {
@@ -33,7 +33,7 @@ void CEngine::Input()
     m_tInput->detach();
 }
 
-void CEngine::Update()
+void CEngine::updateThread()
 {
     m_tUpdate = new std::thread([&]
     {
@@ -63,7 +63,7 @@ void CEngine::Update()
     m_tUpdate->detach();
 }
 
-void CEngine::Render()
+void CEngine::renderThread()
 {
     m_tRender = new std::thread([&]
     {
@@ -99,17 +99,17 @@ CEngine::CEngine()
     m_window.setFramerateLimit(100);
     m_window.setActive(false);
 
-    InitPath();
-    InitAssets();
+    initPath();
+    initAssets();
 
-    m_map.loadFromFile(GAME_PATH + "map/tiles.map");
+    m_map.loadFromFile(g_sGamePath + "map/tiles.map");
 
-    m_map.addEntity(CPlayer("Booloy", *g_spriteList["ghost"], CCharacteristic(0, 0, 0, 0), sf::Vector2f(500, 500)));
-    m_map.addEntity(CPlayer("Holbuy", *g_spriteList["cowboy"], CCharacteristic(0, 0, 0, 0), sf::Vector2f(500, 470)));
+    m_map.addEntity(CPlayer("Booloy", *g_spriteList["ghost"], sf::Vector2f(500, 500)));
+    m_map.addEntity(CPlayer("Holbuy", *g_spriteList["cowboy"], sf::Vector2f(500, 470)));
 
-    Render();
-    Update();
-    Input();
+    renderThread();
+    updateThread();
+    inputThread();
 }
 
 CEngine::~CEngine()
