@@ -21,16 +21,12 @@ namespace graphics
         sf::Vector2f m_position { 0, 0 };
         sf::Vector2f m_size { 0, 0 };
 
-        sf::Shape* m_shape = nullptr;
-
         widgetState m_eState;
         bool m_bIsVisible;
 
         bool isHovered() const;
-    public: 
-        CWidget();
-        ~CWidget();
 
+    public: 
         sf::Text getLabel() const;
         void setLabel(const std::string& sLabel);
 

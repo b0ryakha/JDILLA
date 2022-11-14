@@ -1,15 +1,5 @@
 #include "GUI/CWidget.h"
 
-graphics::CWidget::CWidget()
-{ 
-
-}
-
-graphics::CWidget::~CWidget()
-{
-
-}
-
 sf::Text graphics::CWidget::getLabel() const
 {
     return m_sLabel;
