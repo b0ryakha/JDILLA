@@ -61,8 +61,6 @@ void CEngine::updateThread()
                     m_window.close();
             }
 
-            //updateTime();
-
             for (auto* entity : m_entities)
                 entity->update();
 

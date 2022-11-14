@@ -57,8 +57,12 @@ void graphics::CWidget::hide()
 
 bool graphics::CWidget::isHovered() const
 {
-    return (sf::Mouse::getPosition().x > m_position.x &&
-        sf::Mouse::getPosition().x < (sf::Mouse::getPosition().x + m_position.x)); 
+    return (
+        sf::Mouse::getPosition().x >= m_position.x &&
+        sf::Mouse::getPosition().x <= (m_position.x + m_size.x) &&
+        sf::Mouse::getPosition().y >= m_position.y &&
+        sf::Mouse::getPosition().y <= (m_position.y + m_size.y)
+    ); 
 }
 
 void graphics::CWidget::checkState()
