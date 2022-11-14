@@ -5,42 +5,41 @@
 class CPlayer : public CEntity
 {
 private:
-    float m_health = 80;
-    float m_maxHealth = 100;
-    float m_armor = 0;
-    float m_maxArmor = 50;
-    float m_speed = 0.01;
-    float m_xp = 0;
-    float m_lvl = 1;
-    float m_maxLvl = 100;
+    int m_health = 100;
+    int m_maxHealth = 100;
+    int m_armor = 0;
+    int m_maxArmor = 50;
+    int m_speed = 2;
+    int m_xp = 0;
+    int m_lvl = 1;
+    int m_maxLvl = 100;
 
 public:
-    CPlayer(const std::string& sName, const CSprite& sprite);
-    CPlayer(const std::string& sName, const CSprite& sprite, const sf::Vector2f& position);
+    CPlayer(const std::string& sName, const CSprite& sprite, const sf::Vector2f& position = sf::Vector2f(0, 0));
 
-    void listenInput();
+    void listenInput(float time);
 
-    float getHealth() const;
-    void setHealth(float value);
+    int getHealth() const;
+    void setHealth(int value);
 
-    float getMaxHealth() const;
-    void setMaxHealth(float value);
+    int getMaxHealth() const;
+    void setMaxHealth(int value);
 
-    float getArmor() const;
-    void setArmor(float value);
+    int getArmor() const;
+    void setArmor(int value);
 
-    float getMaxArmor() const;
-    void setMaxArmor(float value);
+    int getMaxArmor() const;
+    void setMaxArmor(int value);
 
-    float getSpeed() const;
-    void setSpeed(float value);
+    int getSpeed() const;
+    void setSpeed(int value);
 
-    float getXp() const;
-    void setXp(float value);
+    int getXp() const;
+    void setXp(int value);
 
-    float getLvl() const;
-    void setLvl(float value);
+    int getLvl() const;
+    void setLvl(int value);
 
-    float getMaxLvl() const;
-    void setMaxLvl(float value);
+    int getMaxLvl() const;
+    void setMaxLvl(int value);
 };
