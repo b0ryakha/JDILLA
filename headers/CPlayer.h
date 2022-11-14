@@ -15,8 +15,7 @@ private:
     int m_maxLvl = 100;
 
 public:
-    CPlayer(const std::string& sName, const CSprite& sprite);
-    CPlayer(const std::string& sName, const CSprite& sprite, const sf::Vector2f& position);
+    CPlayer(const std::string& sName, const CSprite& sprite, const sf::Vector2f& position = sf::Vector2f(0, 0));
 
     void listenInput(float time);
 

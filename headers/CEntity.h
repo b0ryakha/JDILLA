@@ -14,8 +14,7 @@ private:
     CSprite m_sprite { *g_spriteList["ERROR"] };
 
 public:
-    CEntity(const std::string& sName, const CSprite& sprite);
-    CEntity(const std::string& sName, const CSprite& sprite, const sf::Vector2f& position);
+    CEntity(const std::string& sName, const CSprite& sprite, const sf::Vector2f& position = sf::Vector2f(0, 0));
 
     std::string getName() const;
     void setName(const std::string& sName);

@@ -19,6 +19,12 @@
     <Filter Include="Header Files\GUI">
       <UniqueIdentifier>{9c396acb-462c-47dd-95af-e998cfc8fa70}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Custom Shapes">
+      <UniqueIdentifier>{74feed2e-5509-4568-b6b2-0870b274e926}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Custom Shapes">
+      <UniqueIdentifier>{fbf8125d-5425-46c0-ae0c-304198606277}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sources\main.cpp">
@@ -45,6 +51,9 @@
     <ClCompile Include="sources\GUI\CWidget.cpp">
       <Filter>Source Files\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="sources\Custom Shapes\CSuperEllipse.cpp">
+      <Filter>Source Files\Custom Shapes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\CEngine.h">
@@ -67,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="headers\GUI\CWidget.h">
       <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Custom Shapes\CSuperEllipse.h">
+      <Filter>Header Files\Custom Shapes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

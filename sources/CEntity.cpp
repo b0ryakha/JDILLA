@@ -1,9 +1,5 @@
 #include "CEntity.h"
 
-CEntity::CEntity(const std::string& sName, const CSprite& sprite)
-    : m_sName(sName), m_sprite(sprite)
-{}
-
 CEntity::CEntity(const std::string& sName, const CSprite& sprite, const sf::Vector2f& position)
     : m_sName(sName), m_sprite(sprite), m_position(position)
 {}

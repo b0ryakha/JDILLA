@@ -2,10 +2,6 @@
 
 extern float g_time;
 
-CPlayer::CPlayer(const std::string& sName, const CSprite& sprite)
-    : CEntity(sName, sprite)
-{}
-
 CPlayer::CPlayer(const std::string& sName, const CSprite& sprite, const sf::Vector2f& position)
     : CEntity(sName, sprite, position)
 {}
