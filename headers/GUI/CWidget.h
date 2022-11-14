@@ -36,6 +36,8 @@ public:
         widgetState m_eState;
         bool m_bIsVisible;
 
+        sf::Shape *m_shape;
+
         bool isHovered() const;
 
     public: 
