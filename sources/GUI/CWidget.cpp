@@ -95,5 +95,22 @@ void graphics::CWidget::setState(const widgetState& eWidgetState)
 
 void graphics::CWidget::renderWidget(sf::RenderWindow& pWindow)
 {
-    
+    switch(m_eState)
+    {
+        case widgetState::ENABLED:
+            m_shape->setFillColor(graphics::CWidgetSettings::m_fillColor);
+            break;        
+        case widgetState::HOVERED:
+            m_shape->setFillColor(graphics::CWidgetSettings::m_fillColorHovered);
+            break;
+        case widgetState::PRESSED:
+            m_shape->setFillColor(graphics::CWidgetSettings::m_fillColorPressed);
+            break;
+        case widgetState::DISABLED:
+
+            break;
+    }
+
+    pWindow.draw(*m_shape);
+    pWindow.draw(m_sLabel);
 }

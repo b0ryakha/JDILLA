@@ -1,4 +1,6 @@
 #include "CEngine.h"
+#include "GUI/CWidget.h"
+#include "iostream"
 
 void CEngine::initAssets()
 {
@@ -14,7 +16,7 @@ void CEngine::initPath()
     #endif
 
     #ifdef linux
-        g_sGamePath = "~/";
+        g_sGamePath = "/home/stackglock/";
     #endif
 
     g_sGamePath += "JDILLA/";
@@ -27,6 +29,19 @@ void CEngine::initObjects()
     m_localPlayer = new CPlayer("Human", *g_spriteList["cowboy"], sf::Vector2f(100, 100));
 
     m_entities.push_back(new CPlayer("Booloy", *g_spriteList["ghost"], sf::Vector2f(500, 500)));
+}
+
+void CEngine::initWidgets()
+{
+    graphics::CWidgetSettings::m_fillColor = {2, 117, 216};
+    graphics::CWidgetSettings::m_fillColorHovered = {76, 151, 216};
+    graphics::CWidgetSettings::m_fontColor = {255, 255, 255};
+    
+    graphics::CWidgetSettings::m_buttonSize = {50, 100};
+    if (!graphics::CWidgetSettings::m_mainFont.loadFromFile("Arial.ttf"))
+    {
+        std::cout << "ERROR: Cannot init fonts!" << std::endl;
+    }
 }
 
 void CEngine::inputThread()
@@ -101,12 +116,14 @@ CEngine::CEngine()
     sf::ContextSettings settings;
     settings.antialiasingLevel = 16;
 
-    m_window.create(sf::VideoMode(m_iWidth, m_iHeight), "JDILLA", sf::Style::Default, settings);
-    m_window.setFramerateLimit(100);
-    m_window.setActive(false);
+    this->initWidgets();
 
-    initPath();
-    initAssets();
+    this->m_window.create(sf::VideoMode(m_iWidth, m_iHeight), "JDILLA", sf::Style::Default, settings);
+    this->m_window.setFramerateLimit(100);
+    this->m_window.setActive(false);
+
+    this->initPath();
+    this->initAssets();
     initObjects();
 
     renderThread();

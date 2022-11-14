@@ -3,6 +3,7 @@
 #include <thread>
 #include <string>
 #include "CMap.h"
+#include "GUI/CWidget.h"
 
 #include "CPlayer.h"
 
@@ -27,6 +28,7 @@ public:
     void initPath();
     void initAssets();
     void initObjects();
+    void initWidgets();
 
     void inputThread();
     void updateThread();

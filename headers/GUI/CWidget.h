@@ -2,6 +2,8 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <SFML/Graphics/Color.hpp>
+#include <SFML/System/Vector2.hpp>
 #include <string>
 
 namespace graphics
@@ -12,6 +14,17 @@ namespace graphics
         HOVERED,
         PRESSED,
         DISABLED
+    };
+
+    class CWidgetSettings
+    {
+public:
+        static sf::Color m_fillColor;
+        static sf::Color m_fillColorHovered;
+        static sf::Color m_fillColorPressed;
+        static sf::Color m_fontColor;
+        static sf::Font m_mainFont;
+        static sf::Vector2f m_buttonSize;
     };
 
     class CWidget
