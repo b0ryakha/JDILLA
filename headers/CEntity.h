@@ -26,6 +26,6 @@ public:
     sf::Vector2f getPosition() const;
     void setPosition(float fX, float fY);
 
-    void updateState();
+    void update();
     void draw(sf::RenderWindow& pWindow) const;
 };

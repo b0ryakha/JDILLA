@@ -1,5 +1,12 @@
 #include "CEngine.h"
 
+void CEngine::updateTime()
+{
+    std::lock_guard<std::mutex> lock(m_timeMutex);
+    m_fTime = m_clock.getElapsedTime().asMicroseconds() / 800.f;
+    m_clock.restart();
+}
+
 void CEngine::initAssets()
 {
     g_spriteList["ERROR"] = new CSprite(g_sGamePath + "assets/error.png", sf::Vector2f(0, 0));
@@ -35,7 +42,7 @@ void CEngine::inputThread()
     {
         while (m_window.isOpen())
         {
-            m_localPlayer->listenInput();
+            m_localPlayer->listenInput(m_fTime);
         }
     });
 
@@ -54,10 +61,12 @@ void CEngine::updateThread()
                     m_window.close();
             }
 
-            for (auto* entity : m_entities)
-                entity->updateState();
+            //updateTime();
 
-            m_localPlayer->updateState();
+            for (auto* entity : m_entities)
+                entity->update();
+
+            m_localPlayer->update();
         }
     });
 
@@ -70,8 +79,9 @@ void CEngine::renderThread()
     {
         while (m_window.isOpen())
         {
+            updateTime();
             m_window.clear(sf::Color(200, 200, 200));
-
+            
             m_map.draw(m_window);
 
             for (auto* entity : m_entities)
@@ -112,6 +122,8 @@ CEngine::CEngine()
     renderThread();
     updateThread();
     inputThread();
+
+    while (m_window.isOpen()) {}
 }
 
 CEngine::~CEngine()

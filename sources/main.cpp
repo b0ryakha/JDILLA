@@ -7,8 +7,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 {
     CEngine engine;
 
-    while (true) {}
-
     return 0;
 }
 #endif
@@ -17,8 +15,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 int main()
 {
     CEngine engine;
-
-    while (true) {}
 
     return 0;
 }

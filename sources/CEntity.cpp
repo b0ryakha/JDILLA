@@ -38,7 +38,7 @@ void CEntity::setPosition(float fX, float fY)
     m_position = { fX, fY };
 }
 
-void CEntity::updateState()
+void CEntity::update()
 {
     m_sprite.setPosition(m_position.x, m_position.y);
 }
