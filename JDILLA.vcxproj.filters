@@ -54,6 +54,15 @@
     <ClCompile Include="sources\Custom Shapes\CSuperEllipse.cpp">
       <Filter>Source Files\Custom Shapes</Filter>
     </ClCompile>
+    <ClCompile Include="sources\CInventory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\CItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\GUI\CButton.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\CEngine.h">
@@ -79,6 +88,15 @@
     </ClInclude>
     <ClInclude Include="headers\Custom Shapes\CSuperEllipse.h">
       <Filter>Header Files\Custom Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\CInventory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\CItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\GUI\CButton.h">
+      <Filter>Header Files\GUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

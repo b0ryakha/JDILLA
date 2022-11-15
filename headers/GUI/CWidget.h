@@ -1,8 +1,6 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Graphics/Color.hpp>
-#include <SFML/System/Vector2.hpp>
 #include <string>
 
 namespace graphics
@@ -15,9 +13,8 @@ namespace graphics
         DISABLED
     };
 
-    class CWidgetSettings
+    struct CWidgetSettings
     {
-public:
         static sf::Color m_fillColor;
         static sf::Color m_fillColorHovered;
         static sf::Color m_fillColorPressed;

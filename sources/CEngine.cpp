@@ -1,6 +1,4 @@
 #include "CEngine.h"
-#include "GUI/CWidget.h"
-#include "iostream"
 
 void CEngine::updateTime()
 {

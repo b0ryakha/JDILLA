@@ -114,7 +114,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)\sources;$(ProjectDir)\headers;$(ProjectDir)\sources\GUI;$(ProjectDir)\headers\GUI;$(ProjectDir)\sources\Custom Shapes;$(ProjectDir)\headers\Custom Shapes;D:\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\headers;$(ProjectDir)\headers\GUI;$(ProjectDir)\headers\Custom Shapes;D:\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -142,6 +142,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="sources\CInventory.cpp" />
+    <ClCompile Include="sources\CItem.cpp" />
     <ClCompile Include="sources\Custom Shapes\CSuperEllipse.cpp" />
     <ClCompile Include="sources\CSprite.cpp" />
     <ClCompile Include="sources\CMap.cpp" />
@@ -149,10 +151,13 @@
     <ClCompile Include="sources\CEngine.cpp" />
     <ClCompile Include="sources\CEntity.cpp" />
     <ClCompile Include="sources\CPlayer.cpp" />
+    <ClCompile Include="sources\GUI\CButton.cpp" />
     <ClCompile Include="sources\GUI\CWidget.cpp" />
     <ClCompile Include="sources\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\CInventory.h" />
+    <ClInclude Include="headers\CItem.h" />
     <ClInclude Include="headers\Custom Shapes\CSuperEllipse.h" />
     <ClInclude Include="headers\CSprite.h" />
     <ClInclude Include="headers\CMap.h" />
@@ -160,6 +165,7 @@
     <ClInclude Include="headers\CEngine.h" />
     <ClInclude Include="headers\CEntity.h" />
     <ClInclude Include="headers\CPlayer.h" />
+    <ClInclude Include="headers\GUI\CButton.h" />
     <ClInclude Include="headers\GUI\CWidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

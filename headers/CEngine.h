@@ -3,6 +3,7 @@
 #include <thread>
 #include <string>
 #include <mutex>
+#include <iostream>
 
 #include "CMap.h"
 #include "GUI/CWidget.h"

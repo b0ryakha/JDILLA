@@ -89,11 +89,11 @@ void graphics::CWidget::setState(const widgetState& eWidgetState)
 
 void graphics::CWidget::renderWidget(sf::RenderWindow& pWindow)
 {
-    switch(m_eState)
+    switch (m_eState)
     {
         case widgetState::ENABLED:
             m_shape->setFillColor(graphics::CWidgetSettings::m_fillColor);
-            break;        
+            break;
         case widgetState::HOVERED:
             m_shape->setFillColor(graphics::CWidgetSettings::m_fillColorHovered);
             break;
